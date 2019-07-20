@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
+# Modules required
 import feedparser, re, textwrap, random
 from datetime import date, timedelta
 from dateutil import parser
 
+# RSS Feed URLS to parse news from
 urls = [
 	'https://feeds.feedburner.com/TheHackersNews',
 	# 'https://www.darknet.org.uk/feed/',
@@ -45,30 +47,21 @@ urls = [
 	'https://nakedsecurity.sophos.com/feed/',
 ]
 
-# for url in urls:
-# 	parsed_url = feedparser.parse(url)
-# 	# n_o_entries = len(parsed_url.entries)
-# 	for i in range(0,11):
-# 		title = parsed_url.entries[i]['title']
-# 		link = parsed_url.entries[i]['link']
-# 		summary = re.sub('<[^<]+?>','',str(parsed_url.entries[i]['summary']).replace('\n',''))
-# 		print(50*"=")
-# 		print(title+"\n\n"+summary+"\n\nLink:"+link)
-
+# Code to Parse URL's at random and Display in output
 for url in random.sample(urls, len(urls)):
-	parsed_url = feedparser.parse(url)
-	entries = parsed_url.entries
-	noe = len(entries)
-	today = date.today()
-	yesterday = today - timedelta(1)
+	parsed_url = feedparser.parse(url) # parsing URL
+	entries = parsed_url.entries # list of all entries in a URL
+	noe = len(entries) # get number of entries
+	today = date.today() # get present day date
+	yesterday = today - timedelta(1) # get yesterday date 
 	for i in range(0,noe):
-			dop = entries[i]['published']
-			dop_to_date = parser.parse(dop,ignoretz=True)
-			if dop_to_date.date() == today or yesterday:
-				title = entries[i]['title']
-				link = entries[i]['link']
-				summary = re.sub('<[^<]+?>','',str(entries[i]['summary']).replace('\n',''))
-				print(50*"=")
-				print(title+"\n")
-				for line in (textwrap.wrap(summary,width=70)): print(line)
-				print("\n"+link)
+			dop = entries[i]['published'] # get of publishing in str
+			dop_to_date = parser.parse(dop,ignoretz=True) # change dop to date
+			if dop_to_date.date() == today or yesterday: # check for dop if is is present date or yesterday
+				title = entries[i]['title'] # get title
+				link = entries[i]['link'] # gget link
+				summary = re.sub('<[^<]+?>','',str(entries[i]['summary']).replace('\n','')) # get summary
+				print(50*"=") # print 50 equal's symbol to differentiate
+				print(title+"\n") # print title
+				for line in (textwrap.wrap(summary,width=70)): print(line) # wrap summary to length of 70
+				print("\n"+link) # print link
