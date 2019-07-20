@@ -25,6 +25,7 @@ All developers are welcome to make changes / enhance.
 ## Usage
 	
 	python3 rssnews.py
+	python3 rssnews.py | less (to scroll through the news)
 
 ## Screenshot
 ![sample screenshot](https://raw.githubusercontent.com/sathwikv143/rssNews/master/sample.png "Screenshot with News")
