@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # Modules required
-import feedparser, re, textwrap, random
+import feedparser, re, textwrap
 from datetime import date, timedelta
 from dateutil import parser
 
@@ -48,7 +48,7 @@ urls = [
 ]
 
 # Code to Parse URL's at random and Display in output
-for url in random.sample(urls, len(urls)):
+for url in urls:
 	parsed_url = feedparser.parse(url) # parsing URL
 	entries = parsed_url.entries # list of all entries in a URL
 	noe = len(entries) # get number of entries
