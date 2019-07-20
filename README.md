@@ -18,9 +18,8 @@ All developers are welcome to make changes / enhance.
 	textwrap
 	datetime
 	dateutil
-	random
 
-3.Operating System
+3.Operating System (any)
 
 ## Usage
 	
