@@ -27,3 +27,4 @@ All developers are welcome to make changes / enhance.
 	python3 rssnews.py
 
 ## Screenshot
+![sample screenshot](https://raw.githubusercontent.com/sathwikv143/rssNews/master/sample.png "Screenshot with News")
